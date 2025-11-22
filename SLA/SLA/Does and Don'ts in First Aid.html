@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Do's and Don'ts in First Aid</title>
+
+<style>
+    body {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background: #eef2f5;
+        margin: 0;
+        padding: 40px;
+        text-align: center;
+    }
+
+    h1 {
+        margin-top: 10px;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+        justify-items: center;
+    }
+
+    /* Flip card structure */
+    .flip-card {
+        background: transparent;
+        width: 350px;
+        height: 480px;
+        perspective: 1000px;
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: left;
+        transition: transform 0.9s;
+        transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .flip-card-front img {
+        width: 180px;
+        height: 180px;
+        display: block;
+        margin: 0 auto 20px;
+    }
+
+    .flip-card-back {
+        transform: rotateY(180deg);
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    .dos-border { border-top: 6px solid #0be13d; }
+    .dont-border { border-top: 6px solid #e9162b; }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Do's and Don'ts in First Aid</h1>
+<img src="image.png"400" height="400">
+
+<div class="container">
+
+    <!-- DO'S FLIP CARD -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+
+            <!-- Front -->
+            <div class="flip-card-front dos-border">
+                <img src="dos final.png" alt="Do's Image">
+                <h2 style="text-align:center;">DO's in First Aid</h2>
+                <p style="text-align:center;">Hover to see the full list</p>
+            </div>
+
+            <!-- Back -->
+            <div class="flip-card-back dos-border">
+                <h2>DO's in First Aid</h2>
+                <ul>
+                    <li>Call for help immediately.</li>
+                    <li>Ensure your safety first.</li>
+                    <li>Stay calm and reassure the victim.</li>
+                    <li>Wear protective gloves.</li>
+                    <li>Check for responsiveness and breathing.</li>
+                    <li>Control severe bleeding.</li>
+                    <li>Use the recovery position.</li>
+                    <li>Start CPR if not breathing normally.</li>
+                    <li>Use an AED if available.</li>
+                    <li>Cover wounds to prevent infection.</li>
+                    <li>Keep the injured person warm.</li>
+                    <li>Document important information.</li>
+                    <li>Be extra gentle with children.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- DON'TS FLIP CARD -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+
+            <!-- Front -->
+            <div class="flip-card-front dont-border">
+                <img src="donts final.png" alt="Don'ts Image">
+                <h2 style="text-align:center;">DON'Ts in First Aid</h2>
+                <p style="text-align:center;">Hover to see the full list</p>
+            </div>
+
+            <!-- Back -->
+            <div class="flip-card-back dont-border">
+                <h2>DON'Ts in First Aid</h2>
+                <ul>
+                    <li>Don't panic.</li>
+                    <li>Don't move a seriously injured person unless necessary.</li>
+                    <li>Don't try to set a broken bone.</li>
+                    <li>Don't remove embedded objects.</li>
+                    <li>Don't give food or drink to an unconscious person.</li>
+                    <li>Don't apply ice directly to frostbite.</li>
+                    <li>Don't apply tourniquets if untrained.</li>
+                    <li>Don't attempt CPR if untrained (unless guided).</li>
+                    <li>Don't assume an unconscious person is asleep.</li>
+                    <li>Don't share personal medications.</li>
+                    <li>Don't deeply clean severe wounds — cover them.</li>
+                    <li>Don't leave an injured person unattended.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

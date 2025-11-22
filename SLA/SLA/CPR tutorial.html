@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CPR tutorial</title>
+<link rel="stylesheet" href="style-tutorial.css">
+<img src="CPR banner.jpg" width="500" height="300" alt="CPR steps">
+<br>
+<h1>🚨 CPR: Essential Steps for Saving a Life</h1>
+<h2>WHAT IS CPR?</h2>
+<p>Cardiopulmonary Resuscitation (CPR) is an emergency procedure that combines chest compressions and rescue breaths to keep blood flowing to the brain and other vital organs until professional medical help arrives.<br>
+    Time is critical; immediate action significantly increases the chance of survival.<br>
+</p>
+<h2>Key Steps for CPR (Adult/Adolescent)</h2>
+<body>
+    <style>
+
+body {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+
+h1 {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+  animation: emergencyPulse 1.5s infinite;
+  font-size: 2.8em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes emergencyPulse {
+  0%, 100% {
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+  }
+  50% {
+    box-shadow: 0 10px 30px rgba(231, 76, 60, 0.8);
+    transform: scale(1.02);
+  }
+}
+
+
+div h2::before {
+  content: "📍 ";
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+div {
+  position: relative;
+  overflow: hidden;
+}
+
+div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+div:hover::before {
+  left: 100%;
+}
+
+
+div p {
+  counter-reset: list-counter;
+  position: relative;
+  padding-left: 15px;
+}
+
+
+div p br + br {
+  display: block;
+  margin: 10px 0;
+}
+
+
+div:nth-of-type(5) {
+  background: linear-gradient(135deg, #ffe5e5 0%, #ffcccc 100%);
+  border-left: 6px solid #e74c3c;
+  animation: rhythmPulse 1.2s infinite;
+}
+
+@keyframes rhythmPulse {
+  0%, 100% {
+    border-left-width: 6px;
+  }
+  50% {
+    border-left-width: 10px;
+  }
+}
+
+
+div:nth-of-type(6) p::after {
+  content: "⚠️ Important Note";
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #e74c3c;
+  animation: fadeIn 2s ease-in;
+}
+
+/* Continue section emphasis */
+div:last-of-type {
+  background: linear-gradient(135deg, #fff5e6 0%, #ffe6cc 100%);
+  border: 3px dashed #f39c12;
+  animation: emphasize 2s infinite;
+}
+
+@keyframes emphasize {
+  0%, 100% {
+    border-color: #f39c12;
+  }
+  50% {
+    border-color: #e67e22;
+  }
+}
+
+
+img[alt="CPR steps"] {
+  border: 5px solid #e74c3c;
+  animation: glowBorder 2s infinite;
+}
+
+@keyframes glowBorder {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(231, 76, 60, 0.8);
+  }
+}
+
+
+footer {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+  animation: footerGlow 3s infinite;
+}
+
+@keyframes footerGlow {
+  0%, 100% {
+    box-shadow: 0 -5px 15px rgba(231, 76, 60, 0.3);
+  }
+  50% {
+    box-shadow: 0 -10px 30px rgba(231, 76, 60, 0.6);
+  }
+}</style>
+    <div>
+        <h2>1.Check the Scene and the Person:</h2>
+        <p>
+            a.Ensure the area is safe for you and the victim.<br>
+            b.Tap the person's shoulder and shout, "Are you okay?" to check for responsiveness.<br>
+        </p>
+    </div>
+    <div>
+        <h2>2.Call for Help:</h2>
+        <p>
+            i.If the person is unresponsive and not breathing (or only gasping), immediately call your local emergency number (e.g., 911) or assign someone nearby to do it.<br>
+            ii.If an Automated External Defibrillator (AED) is available, retrieve it or have someone else get it.<br>
+        </p>
+    </div>
+    <div>
+        <h2>3.Position and Open the Airway:</h2>
+        <p>
+            i.Gently roll the person onto their back on a firm, flat surface.<br>
+            ii.Use the head-tilt, chin-lift maneuver to open the airway: tilt the head back slightly by pushing on the forehead while lifting the chin with two fingers.<br>
+        </p>
+    </div>
+    <div>
+        <h2>4.Check for Breathing:</h2>
+        <p>
+            i.Look, listen, and feel for normal breathing for no more than 10 seconds. Occasional gasps are not considered normal breathing.<br>
+            ii.If the person is not breathing normally, start compressions.<br>
+        </p>
+    </div>
+    <div>
+        <h2>5.Start Chest Compressions (Circulation):</h2>
+        <p>
+            i.Kneel beside the person.<br>
+            ii.Place the heel of one hand in the center of the chest (lower half of the sternum). Place your other hand on top of the first, interlocking your fingers.<br>
+            iii.Keep your arms straight and position your shoulders directly over your hands.<br>
+            iv.Push hard and fast at a rate of 100 to 120 compressions per minute (think of the beat to "Stayin' Alive").<br>
+            v.Compress the chest at least 2 inches (5 cm) deep.<br>
+            vi.Allow the chest to recoil completely between compressions.<br>
+            vii.Deliver a cycle of 30 compressions.<br>
+        </p>
+    </div>
+    <div>
+        <h2>6.Give Rescue Breaths (Airway/Breathing):</h2>
+        <p>
+            i.After 30 compressions, perform the head-tilt, chin-lift again.<br>
+            ii.Pinch the nose shut, take a normal breath, and cover the person's mouth tightly with yours.<br>
+            iii.Blow in for about 1 second, watching for the chest to rise.<br>
+            iv.Give a second rescue breath.<br>
+            Note: If you are untrained or unwilling to give rescue breaths, perform hands-only CPR (continuous chest compressions).<br>
+        </p>
+    </div>
+    <div>
+        <h2>7.Continue:</h2>
+        <p>
+            Continue cycles of 30 compressions and 2 breaths until the person shows signs of movement, an AED becomes available, or EMS takes over.<br>
+        </p>
+    </div>
+</body>
+
+<footer>@ SAKEC FIRST AID SAVIOURS COPYRIGHT CC 2025</footer>
+</head>
+</html>

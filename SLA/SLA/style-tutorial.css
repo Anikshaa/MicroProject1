@@ -1,0 +1,245 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #a1ade6 0%, #d2bfe4 100%);
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Image Styles */
+img {
+  display: block;
+  margin: 20px auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideDown 0.6s ease-out;
+}
+
+img:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Heading Styles */
+h1, h2, h3, h4, h5 {
+  background: linear-gradient(90deg, #ff6b6b, #ee5a6f);
+  color: white;
+  padding: 15px 25px;
+  margin: 25px auto;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+  max-width: 90%;
+  animation: slideIn 0.7s ease-out;
+  transition: all 0.3s ease;
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+h1 {
+  font-size: 2.5em;
+  animation-delay: 0.2s;
+}
+
+h2 {
+  font-size: 2em;
+  animation-delay: 0.3s;
+}
+
+h3 {
+  font-size: 1.7em;
+  animation-delay: 0.4s;
+}
+
+h4 {
+  font-size: 1.5em;
+  animation-delay: 0.5s;
+}
+
+h5 {
+  font-size: 1.3em;
+  animation-delay: 0.6s;
+}
+
+/* Paragraph and Content Styles */
+p {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px 30px;
+  margin: 20px auto;
+  border-radius: 12px;
+  max-width: 900px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-left: 5px solid #ff6b6b;
+  animation: fadeInUp 0.8s ease-out;
+  transition: all 0.3s ease;
+}
+
+p:hover {
+  transform: translateX(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  border-left-width: 8px;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Div Container Styles */
+div {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  margin: 25px auto;
+  border-radius: 15px;
+  max-width: 900px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  border-top: 4px solid #667eea;
+  animation: popIn 0.6s ease-out;
+  transition: all 0.3s ease;
+}
+
+div:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Navigation Styles */
+nav {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 900px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.8s ease-out;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 5px;
+  display: inline-block;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Styles */
+footer {
+  background: linear-gradient(90deg, #ff6b6b, #ee5a6f);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-in;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Special Alert Emoji Pulse */
+h1:first-of-type {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8em;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+  }
+  
+  p, div {
+    padding: 15px;
+  }
+  
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+}

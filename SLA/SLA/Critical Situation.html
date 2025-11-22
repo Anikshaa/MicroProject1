@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CRITICAL SITUATION</title>
+<link rel="stylesheet" href="style-tutorial.css">
+<img src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/17-04-2024_WFP_Gaza-01.jpg/image1170x530cropped.jpg" width="500" height="300">
+<br>
+<h1>If Someone is Bleeding Severely:</h1>
+<p>
+    Call for emergency help immediately.<br>
+Put on disposable gloves if available.<br>
+Apply firm, direct pressure to the wound using a clean cloth, bandage, or your hands.<br>
+Elevate the bleeding limb above the level of the heart, if possible.<br>
+Do not remove the cloth if blood soaks through. Add another layer on top and continue pressing firmly.<br>
+If direct pressure does not stop the bleeding on a limb, a tourniquet may be necessary. Only use one if you are trained or if emergency services instruct you to do so.<br>
+<br>
+</p>
+<h2>If Someone is Choking (and is conscious):</h2>
+<p>
+    Ask, "Are you choking?" If they can speak, cough, or breathe, encourage them to keep coughing.<br>
+If they cannot speak, cough, or breathe:<br>
+Give 5 Back Blows: Stand behind them, lean them forward, and give 5 sharp blows between their shoulder blades with the heel of your hand.<br>
+Give 5 Abdominal Thrusts (Heimlich Maneuver):<br>
+Stand behind them and wrap your arms around their waist.<br>
+Make a fist with one hand and place it just above their belly button.<br>
+Grab your fist with your other hand.<br>
+Pull sharply inward and upward.<br>
+-------------------------------------------------------<br>
+Repeat: Continue alternating between 5 back blows and 5 abdominal thrusts until the object is forced out or the person becomes unconscious.<br>
+If they become unconscious, carefully lower them to the ground and start CPR.<br>
+</p>
+<h3>If Someone is Unconscious BUT Breathing Normally:</h3>
+<p>
+    Do not perform CPR.<br>
+    -------------------------------------------------------<br>
+Place them in the recovery position. This keeps their airway open and prevents them from choking on any fluids.<br>
+Kneel beside the person.<br>
+Place their arm nearest to you at a right angle.<br>
+Bring their other arm across their chest and place the back of their hand against their cheek.<br>
+Bend their far knee up.<br>
+Gently roll them onto their side toward you.<br>
+Adjust their top leg so their knee and hip are bent at right angles.<br>
+Gently tilt their head back to keep the airway open.<br>
+-------------------------------------------------------<br>
+Monitor their breathing continuously until help arrives. If they stop breathing, roll them onto their back and start CPR.<br>
+<br>
+</p>
+</head>
+<body>
+    <style>/* Critical Situation - Emergency Styling */
+/* This extends style-tutorial.css with urgent visual cues */
+
+body {
+  background: linear-gradient(135deg, #c0392b 0%, #8e44ad 100%);
+  animation: emergencyBackground 3s ease infinite;
+}
+
+@keyframes emergencyBackground {
+  0%, 100% {
+    background: linear-gradient(135deg, #c0392b 0%, #8e44ad 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, #8e44ad 0%, #c0392b 100%);
+  }
+}
+
+/* Emergency banner image */
+img[src*="unitednations"] {
+  border: 6px solid #e74c3c;
+  animation: urgentBorder 1s infinite;
+  filter: brightness(1.1);
+}
+
+@keyframes urgentBorder {
+  0%, 100% {
+    border-color: #e74c3c;
+    box-shadow: 0 0 30px rgba(231, 76, 60, 0.8);
+  }
+  50% {
+    border-color: #c0392b;
+    box-shadow: 0 0 50px rgba(192, 57, 43, 1);
+  }
+}
+
+/* Section 1: Severe Bleeding */
+h1 {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+  font-size: 2.8em;
+  animation: bleedingAlert 1.5s infinite;
+  position: relative;
+}
+
+h1::before {
+  content: "🚨 ";
+  animation: sirenRotate 2s linear infinite;
+}
+
+@keyframes bleedingAlert {
+  0%, 100% {
+    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.6);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 10px 40px rgba(231, 76, 60, 1);
+    transform: scale(1.03);
+  }
+}
+
+@keyframes sirenRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+h1 + p {
+  background: linear-gradient(135deg, #fadbd8, #f5b7b1);
+  border-left: 8px solid #e74c3c;
+  border-right: 8px solid #e74c3c;
+  animation: bleedingPulse 2s infinite;
+}
+
+@keyframes bleedingPulse {
+  0%, 100% {
+    border-left-width: 8px;
+    border-right-width: 8px;
+  }
+  50% {
+    border-left-width: 12px;
+    border-right-width: 12px;
+  }
+}
+
+/* Section 2: Choking */
+h2 {
+  background: linear-gradient(90deg, #f39c12, #e67e22);
+  font-size: 2.5em;
+  animation: chokingAlert 1.8s infinite;
+}
+
+h2::before {
+  content: "⚠️ ";
+  animation: warning 1s ease-in-out infinite;
+}
+
+@keyframes chokingAlert {
+  0%, 100% {
+    box-shadow: 0 5px 20px rgba(243, 156, 18, 0.6);
+  }
+  50% {
+    box-shadow: 0 10px 40px rgba(230, 126, 34, 0.9);
+  }
+}
+
+@keyframes warning {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+h2 + p {
+  background: linear-gradient(135deg, #fff3cd, #ffe5a1);
+  border-left: 8px solid #f39c12;
+  position: relative;
+}
+
+h2 + p::after {
+  content: "Act Fast!";
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: #e67e22;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9em;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Section 3: Unconscious But Breathing */
+h3 {
+  background: linear-gradient(90deg, #3498db, #2980b9);
+  font-size: 2.3em;
+  animation: breathingAlert 2s ease-in-out infinite;
+}
+
+h3::before {
+  content: "💤 ";
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathingAlert {
+  0%, 100% {
+    box-shadow: 0 5px 20px rgba(52, 152, 219, 0.5);
+  }
+  50% {
+    box-shadow: 0 10px 35px rgba(41, 128, 185, 0.8);
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+h3 + p {
+  background: linear-gradient(135deg, #d6eaf8, #aed6f1);
+  border-left: 8px solid #3498db;
+  position: relative;
+}
+
+/* Recovery position emphasis */
+h3 + p::before {
+  content: "Recovery Position ➜";
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #2980b9;
+  font-weight: bold;
+  font-size: 1.1em;
+  animation: slideInRight 2s ease-in-out infinite;
+}
+
+@keyframes slideInRight {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-10px);
+    opacity: 0.7;
+  }
+}
+
+/* All paragraphs get urgent hover effect */
+p {
+  transition: all 0.3s ease;
+}
+
+p:hover {
+  transform: translateX(20px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Separator lines between steps */
+p br {
+  display: block;
+  height: 10px;
+}
+
+/* Footer emergency theme */
+footer {
+  background: linear-gradient(90deg, #c0392b, #8e44ad);
+  animation: footerEmergency 3s ease infinite;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+@keyframes footerEmergency {
+  0%, 100% {
+    box-shadow: 0 -8px 25px rgba(192, 57, 43, 0.5);
+  }
+  50% {
+    box-shadow: 0 -12px 40px rgba(142, 68, 173, 0.7);
+  }
+}
+
+/* Add pulsing effect to critical instructions */
+p {
+  animation: instructionPulse 4s ease-in-out infinite;
+}
+
+@keyframes instructionPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+/* Responsive urgent design */
+@media (max-width: 768px) {
+  h1, h2, h3 {
+    font-size: 1.8em;
+  }
+  
+  p::after, p::before {
+    font-size: 0.8em;
+  }
+}</style>
+<footer>@ SAKEC FIRST AID SAVIOURS COPYRIGHT CC 2025</footer>
+</body>
+</html>

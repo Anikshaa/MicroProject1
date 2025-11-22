@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>The First Aid Kit Store</title>
+
+  <style>
+    /* ---------- Variables ---------- */
+    :root{
+      --bg:#fcfafa;
+      --header-bg:#ae0505c8;
+      --card-bg:#ffffff;
+      --muted:#555555;
+      --accent:#0398f4;
+      --radius:12px;
+      --glass: rgba(255,255,255,0.85);
+      --shadow-sm: 0 6px 18px rgba(10,20,30,0.06);
+      --shadow-lg: 0 18px 40px rgba(10,20,30,0.12);
+      --ease: cubic-bezier(.2,.9,.2,1);
+    }
+
+    /* ---------- Base ---------- */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg, #fbfdff 0%, var(--bg) 100%);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding-bottom:60px;
+    }
+
+    /* ---------- Header ---------- */
+    header{
+      background:var(--header-bg);
+      color:white;
+      text-align:center;
+      padding:20px 18px;
+      box-shadow: 0 6px 18px rgba(174,5,5,0.12);
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+    header h1{ margin:0; font-size:22px; letter-spacing:0.3px; }
+    header p{ margin:4px 0 0; font-size:13px; opacity:0.95 }
+
+    /* ---------- Main layout ---------- */
+    main{
+      max-width:1200px;
+      margin:18px auto;
+      padding:0 16px 48px;
+      display:block;
+    }
+
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+    }
+
+    /* ---------- Product card (original structure preserved) ---------- */
+    .product-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,0,0,0.03);
+      padding:14px;
+      text-align:center;
+      box-shadow: var(--shadow-sm);
+      transition: transform .45s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+      transform-origin: center;
+      overflow: hidden;
+      position:relative;
+      will-change: transform;
+      cursor: pointer;
+      /* subtle float animation (see JS control) */
+    }
+
+    .product-card:hover{
+      transform: translateY(-10px) rotateZ(-0.5deg) scale(1.02);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(3,152,244,0.12);
+    }
+
+    .product-card img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      border-radius:8px;
+      transition: transform .6s var(--ease), filter .5s var(--ease);
+      display:block;
+      margin-bottom:12px;
+    }
+
+    .product-card:hover img{
+      transform: scale(1.06) translateY(-4px);
+      filter: saturate(1.05);
+    }
+
+    .product-title{
+      font-size:17px;
+      font-weight:700;
+      color:#1b2936;
+      margin-bottom:6px;
+    }
+
+    .product-desc{
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:10px;
+      min-height:40px;
+    }
+
+    .product-price{
+      font-size:16px;
+      font-weight:800;
+      color:#000;
+      border-top:1px solid #f1f1f1;
+      padding-top:8px;
+    }
+
+    /* tiny tag style retained from original vibe */
+    .tag {
+      display:inline-block;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: linear-gradient(180deg, rgba(3,152,244,0.08), rgba(3,152,244,0.04));
+      color:var(--accent);
+      font-weight:700;
+      border:1px solid rgba(3,152,244,0.06);
+      margin-bottom:6px;
+    }
+
+    /* ---------- Modal (details) ---------- */
+    .overlay {
+      position:fixed; inset:0;
+      display:flex; align-items:center; justify-content:center;
+      background:rgba(2,6,23,0.45);
+      opacity:0; pointer-events:none;
+      transition: opacity .28s var(--ease);
+      z-index:60;
+    }
+    .overlay.open{ opacity:1; pointer-events:auto; }
+
+    .modal {
+      width:420px;
+      max-width:92%;
+      background:var(--glass);
+      border-radius:14px;
+      padding:16px;
+      box-shadow: 0 22px 50px rgba(0,0,0,0.45);
+      transform: translateY(20px) scale(.98);
+      transition: transform .36s var(--ease), opacity .28s var(--ease);
+      opacity:0;
+      backdrop-filter: blur(6px) saturate(120%);
+      border:1px solid rgba(255,255,255,0.6);
+    }
+    .overlay.open .modal{ transform: translateY(0) scale(1); opacity:1; }
+
+    .modal .m-media{
+      height:180px; overflow:hidden; border-radius:10px; margin-bottom:12px;
+    }
+    .modal img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    .modal h2{ margin:0 0 8px; font-size:18px; }
+    .modal p{ margin:0; color:var(--muted); font-size:14px; }
+
+    .modal .m-foot{
+      display:flex; justify-content:space-between; align-items:center; margin-top:14px;
+    }
+    .btn {
+      background: linear-gradient(180deg, var(--accent), #0077cc);
+      color:white;
+      border:0; padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer;
+      box-shadow: 0 8px 20px rgba(3,152,244,0.12);
+      transition: transform .18s var(--ease);
+    }
+    .btn:active{ transform: translateY(2px); }
+
+    .btn.ghost{
+      background:transparent; color:var(--accent); border:1px solid rgba(3,152,244,0.12);
+      box-shadow:none; font-weight:700;
+    }
+
+    .close-x{
+      background:transparent; border:0; font-size:20px; cursor:pointer; color:var(--muted);
+    }
+
+    /* ---------- Floating subtle motion for aesthetics ---------- */
+    .float {
+      animation: floatY 6s ease-in-out infinite;
+      transform-origin:center;
+    }
+    @keyframes floatY {
+      0% { transform: translateY(0) }
+      50% { transform: translateY(-6px) }
+      100% { transform: translateY(0) }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:1000px){
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+      .product-card img{ height:160px; }
+    }
+    @media (max-width:640px){
+      header h1{ font-size:18px }
+      .grid{ grid-template-columns: 1fr; gap:14px; padding:0 6px; }
+      .product-card img{ height:200px; }
+      .modal{ width:92%; }
+    }
+
+    /* small utility */
+    .center { text-align:center; }
+    .pdf-btn {
+      position:fixed; right:18px; bottom:18px;
+      background:linear-gradient(180deg,#0398f4,#006fb3);
+      color:white; padding:12px 16px; border-radius:12px; text-decoration:none; font-weight:700;
+      box-shadow: 0 18px 40px rgba(3,152,244,0.12); z-index:70;
+    }
+
+    /* entry fade-in for cards */
+    .card-appear {
+      opacity:0; transform: translateY(10px) scale(.995);
+      transition: opacity .55s var(--ease), transform .55s var(--ease);
+    }
+    .card-appear.show{ opacity:1; transform: translateY(0) scale(1); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>The First Aid Store</h1>
+    <p style="margin-top:6px;font-size:13px;">Trusted supplies • clear guidance • first-response essentials</p>
+  </header>
+
+  <main>
+    <!-- ORIGINAL-LIKE GRID: kept same card content & order as you provided -->
+    <section class="grid" id="grid">
+
+      <div class="product-card card-appear float" data-title="Adhesive bandages" data-desc="For covering minor cuts and scrapes." data-price="₹25">
+        <div class="tag">Essentials</div>
+        <img src="bandage.webp" alt="bandage">
+        <div class="product-title">Adhesive bandages</div>
+        <div class="product-desc">For covering minor cuts and scrapes.</div>
+        <div class="product-price">₹25</div>
+      </div>
+
+      <div class="product-card card-appear float" data-title="Sterile gauze pads" data-desc="For covering larger wounds or applying pressure to stop bleeding." data-price="₹1,599">
+        <div class="tag">Wound care</div>
+        <img src="sterile gauze.webp" alt="sterile gauze">
+        <div class="product-title">Sterile gauze pads</div>
+        <div class="product-desc">For covering larger wounds or applying pressure to stop bleeding.</div>
+        <div class="product-price">₹1,599</div>
+      </div>
+
+      <div class="product-card card-appear float" data-title="Absorbent compress dressings" data-desc="For managing more significant bleeding." data-price="₹599.00">
+        <div class="tag">Wound care</div>
+        <img src="absorbent.webp" alt="absorbent compress">
+        <div class="product-title">Absorbent compress dressings</div>
+        <div class="product-desc">For managing more significant bleeding.</div>
+        <div class="product-price">₹599.00</div>
+      </div>
+
+      <div class="product-card card-appear float" data-title="Antibiotic ointment packets" data-desc="To prevent infection in minor wounds." data-price="₹249.00">
+        <div class="tag">Wound care</div>
+        <img src="https://images-cdn.ubuy.co.in/64c983d272c89224b910764d-globe-25-pack-triple-antibiotic.jpg" alt="Antibiotic ointment packets">
+        <div class="product-title">Antibiotic ointment packets</div>
+        <div class="product-desc">To prevent infection in minor wounds.</div>
+        <div class="product-price">₹249.00</div>
+      </div>
+
+      <div class="product-card card-appear float" data-title="Burn cream or gel" data-desc="To soothe minor burns." data-price="₹66.">
+        <div class="tag">Burn care</div>
+        <img src="https://images.apollo247.in/pub/media/catalog/product/B/U/BUR0002_1_1.jpg" alt="burn cream">
+        <div class="product-title">Burn cream or gel</div>
+        <div class="product-desc">To soothe minor burns.</div>
+        <div class="product-price">₹66.</div>
+      </div>
+
+      <div class="product-card card-appear float" data-title="pain relievers" data-desc="ibuprofen (Advil, Motrin) and acetaminophen (Tylenol) for pain, headaches, and fever." data-price="₹199">
+        <div class="tag">Medications</div>
+        <img src="https://familydoctor.org/wp-content/uploads/2025/09/52565278_l.jpg" alt="pain killers">
+        <div class="product-title">pain relievers</div>
+        <div class="product-desc">ibuprofen (Advil, Motrin) and acetaminophen (Tylenol) for pain, headaches, and fever.</div>
+        <div class="product-price">₹199</div>
+      </div>
+
+      <div class="product-card card-appear float" data-title="Digital thermometer" data-desc="To monitor body temperature." data-price="₹159">
+        <div class="tag">Thermometer</div>
+        <img src="thermometer.webp" alt="thermometer">
+        <div class="product-title">Digital thermometer</div>
+        <div class="product-desc">To monitor body temperature.</div>
+        <div class="product-price">₹159</div>
+      </div>
+
+      <div class="product-card card-appear float" data-title="Disposable non-latex gloves" data-desc="To protect against infection when providing aid." data-price="₹169">
+        <div class="tag">Protection</div>
+        <img src="glove.jpg" alt="Disposable non-latex gloves">
+        <div class="product-title">Disposable non-latex gloves</div>
+        <div class="product-desc">To protect against infection when providing aid.</div>
+        <div class="product-price">₹169</div>
+      </div>
+
+      <div class="product-card card-appear float" data-title="Instant cold packs" data-desc="To reduce swelling and pain from sprains, strains, or bruises." data-price="₹192">
+        <div class="tag">First Aid</div>
+        <img src="cold pack.jpg" alt="ice packs">
+        <div class="product-title">Instant cold packs</div>
+        <div class="product-desc">To reduce swelling and pain from sprains, strains, or bruises.</div>
+        <div class="product-price">₹192</div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- modal + overlay -->
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+      <div class="m-media"><img id="mImg" src="" alt=""></div>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2 id="mTitle">Item</h2>
+        <button class="close-x" id="closeModal" aria-label="Close">&times;</button>
+      </div>
+      <p id="mDesc" style="color:var(--muted);margin-top:8px"></p>
+      <div class="m-foot">
+        <div>
+          <div id="mPrice" style="font-weight:800;color:#0b7fcc;font-size:16px"></div>
+          <div style="font-size:13px;color:var(--muted)">In stock</div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn ghost" id="favBtn">Favorite</button>
+          <button class="btn" id="buyBtn">Buy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF link to uploaded file path (from your upload) -->
+  <a class="pdf-btn" href="/mnt/data/STAGE 2 (61,62,63).pdf" target="_blank" title="View First Aid Tutorial (PDF)">
+    View First Aid Tutorial (PDF)
+  </a>
+
+  <script>
+    /* ========= Add responsive & floating behavior + animations ========= */
+
+    // Wait for DOM
+    document.addEventListener('DOMContentLoaded', ()=> {
+      const cards = document.querySelectorAll('.product-card.card-appear');
+
+      // Staggered appear animation
+      cards.forEach((c, i) => {
+        setTimeout(()=> c.classList.add('show'), 90 * i);
+      });
+
+      // Add gentle random float offsets so motion feels organic (C: Floating Animation)
+      cards.forEach((card, idx) => {
+        // Give each card a slightly different animation-duration and delay
+        const dur = 5 + Math.random() * 3; // 5-8s
+        const delay = (Math.random() * 2) + 's';
+        card.style.animationDuration = dur + 's';
+        card.style.animationDelay = delay;
+
+        // Also add a tiny rotate back-and-forth on hover using JS for mobile safety
+        card.addEventListener('touchstart', ()=>{
+          card.style.transform = 'translateY(-8px) rotateZ(-0.4deg) scale(1.02)';
+        });
+        card.addEventListener('touchend', ()=>{
+          card.style.transform = '';
+        });
+      });
+
+      /* ---------- Modal interactions ---------- */
+      const overlay = document.getElementById('overlay');
+      const mImg = document.getElementById('mImg');
+      const mTitle = document.getElementById('mTitle');
+      const mDesc = document.getElementById('mDesc');
+      const mPrice = document.getElementById('mPrice');
+      const closeModal = document.getElementById('closeModal');
+
+      // Open modal when card clicked (preserve original content)
+      document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+          // Don't open if user clicks interactive element (none currently)
+          const title = card.dataset.title || card.querySelector('.product-title').innerText;
+          const desc = card.dataset.desc || card.querySelector('.product-desc').innerText;
+          const price = card.dataset.price || card.querySelector('.product-price').innerText;
+          const img = card.querySelector('img').src;
+
+          mTitle.textContent = title;
+          mDesc.textContent = desc;
+          mPrice.textContent = price;
+          mImg.src = img;
+          overlay.classList.add('open');
+          overlay.setAttribute('aria-hidden', 'false');
+
+          // lock scroll
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      // close modal
+      closeModal.addEventListener('click', closeIt);
+      overlay.addEventListener('click', (ev)=>{
+        if(ev.target === overlay) closeIt();
+      });
+      function closeIt(){
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+      }
+
+      // keyboard accessibility: close on ESC
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape' && overlay.classList.contains('open')) closeIt();
+      });
+
+      /* ---------- Image fallback for missing local images ---------- */
+      document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', () => {
+          img.src = 'https://via.placeholder.com/500x350?text=Image+not+found';
+        });
+      });
+
+      /* ---------- Responsive tweaks for small screens ---------- */
+      function handleResize(){
+        if(window.innerWidth < 640){
+          // reduce float motion on very small screens for performance
+          document.querySelectorAll('.float').forEach(el=>{
+            el.style.animationDuration = '6s';
+          });
+        }
+      }
+      window.addEventListener('resize', handleResize);
+      handleResize();
+    });
+  </script>
+
+</body>
+</html>

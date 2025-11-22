@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FIRST AID TUTORIAL</title>
+<link rel="stylesheet" href="style-tutorial.css">
+<img src="first aid kit.jpg" width="200" height="200">
+<h1>1. Check the Scene for Safety</h1>
+<p>
+ Before helping, make sure:<br>
+→No fire, traffic, electrical danger, falling objects, etc.<br>
+→It is safe for you to approach.<br>
+→If the scene is unsafe, stay back and call emergency services.<br>
+<br>
+</p>
+<h2>2. Check the Person’s Responsiveness</h2>
+<p>
+   Approach and gently ask:<br>
+“Are you okay?”<br>
+→Tap their shoulder if needed.<br>
+<br>
+If responsive:<br>
+→ Get their consent to help.<br>
+→ Ask what happened, check for injuries.<br>
+<br>
+If unresponsive:<br>
+→ Move to Step 3. <br>
+<br>
+</p>
+<h3>3.Call Emergency Services</h3>
+<p>
+Always call your local emergency number (e.g.,100,102) if the person:<br>
+→Is unresponsive<br>
+→Has trouble breathing<br>
+→Has severe bleeding<br>
+→Has chest pain<br>
+→Has a possible stroke or severe allergic reaction<br>
+<br>
+If others are around, point at someone and say:<br>
+“You—call emergency services!”<br>
+</p>
+<h4>4.Check Airway, Breathing, Circulation (ABC)</h4>
+<p>
+A stands for Airway<br>
+Tilt head back, lift chin.<br>
+Look for blockage.<br>
+<br>
+B stands for Breathing<br>
+Look, listen, and feel for 10 seconds.<br>
+If breathing normally → place in recovery position.<br>
+If NOT breathing → begin CPR.<br>
+<br>
+C stands for Circulation<br>
+Check for severe bleeding.<br>
+<br>
+</p>
+<footer>@ SAKEC FIRST AID SAVIOURS COPYRIGHT CC 2025</footer>
+</head>
+<body>
+   <style>
+
+
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  animation: tutorialBackground 12s ease infinite;
+}
+
+@keyframes tutorialBackground {
+  0%, 100% {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, #f093fb 0%, #667eea 50%, #764ba2 100%);
+  }
+}
+
+
+img[alt="first aid kit"] {
+  animation: kitSpin 20s linear infinite, kitFloat 3s ease-in-out infinite;
+  border: 5px solid white;
+}
+
+@keyframes kitSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes kitFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+h1 {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  font-size: 2.6em;
+  animation: step1Glow 2s infinite;
+  position: relative;
+}
+
+h1::before {
+  content: "1️⃣ ";
+  animation: numberBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes step1Glow {
+  0%, 100% {
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+  }
+  50% {
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.9);
+  }
+}
+
+@keyframes numberBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+h1 + p {
+  background: linear-gradient(135deg, #e8eaf6, #c5cae9);
+  border-left: 8px solid #667eea;
+  position: relative;
+}
+
+h1 + p::before {
+  content: "Safety First!";
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: #667eea;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: bold;
+  animation: safetyPulse 2s infinite;
+}
+
+@keyframes safetyPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Step 2: Check Responsiveness */
+h2 {
+  background: linear-gradient(90deg, #764ba2, #f093fb);
+  font-size: 2.4em;
+  animation: step2Glow 2s infinite;
+}
+
+h2::before {
+  content: "2️⃣ ";
+  animation: numberBounce 1.5s ease-in-out infinite 0.2s;
+}
+
+@keyframes step2Glow {
+  0%, 100% {
+    box-shadow: 0 5px 20px rgba(118, 75, 162, 0.5);
+  }
+  50% {
+    box-shadow: 0 10px 40px rgba(118, 75, 162, 0.9);
+  }
+}
+
+h2 + p {
+  background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+  border-left: 8px solid #764ba2;
+}
+
+/* Step 3: Call Emergency */
+h3 {
+  background: linear-gradient(90deg, #f093fb, #ff6b6b);
+  font-size: 2.2em;
+  animation: step3Glow 2s infinite;
+}
+
+h3::before {
+  content: "3️⃣ ";
+  animation: numberBounce 1.5s ease-in-out infinite 0.4s;
+}
+
+@keyframes step3Glow {
+  0%, 100% {
+    box-shadow: 0 5px 20px rgba(240, 147, 251, 0.5);
+  }
+  50% {
+    box-shadow: 0 10px 40px rgba(240, 147, 251, 0.9);
+  }
+}
+
+h3 + p {
+  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+  border-left: 8px solid #f093fb;
+  position: relative;
+}
+
+h3 + p::after {
+  content: "📞";
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 3em;
+  animation: phoneRing 1s ease-in-out infinite;
+}
+
+@keyframes phoneRing {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  75% {
+    transform: rotate(15deg);
+  }
+}
+
+/* Step 4: ABC Check */
+h4 {
+  background: linear-gradient(90deg, #ff6b6b, #ee5a6f);
+  font-size: 2em;
+  animation: step4Glow 2s infinite;
+  position: relative;
+}
+
+h4::before {
+  content: "4️⃣ ";
+  animation: numberBounce 1.5s ease-in-out infinite 0.6s;
+}
+
+h4::after {
+  content: " ABC";
+  color: #fff;
+  font-weight: bold;
+  animation: abcPulse 1.5s infinite;
+}
+
+@keyframes step4Glow {
+  0%, 100% {
+    box-shadow: 0 5px 20px rgba(255, 107, 107, 0.5);
+  }
+  50% {
+    box-shadow: 0 10px 40px rgba(255, 107, 107, 0.9);
+  }
+}
+
+@keyframes abcPulse {
+  0%, 100% {
+    opacity: 1;
+    letter-spacing: 2px;
+  }
+  50% {
+    opacity: 0.7;
+    letter-spacing: 4px;
+  }
+}
+
+h4 + p {
+  background: linear-gradient(135deg, #ffebee, #ffcdd2);
+  border-left: 8px solid #ff6b6b;
+  position: relative;
+}
+
+/* ABC labels styling */
+h4 + p::before {
+  content: "A → Airway\A B → Breathing\A C → Circulation";
+  white-space: pre;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(255, 107, 107, 0.9);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 0.85em;
+  font-weight: bold;
+  line-height: 1.8;
+  animation: abcSlide 3s ease-in-out infinite;
+}
+
+@keyframes abcSlide {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+}
+
+/* Separator lines enhancement */
+p br {
+  display: block;
+  margin: 8px 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.3), transparent);
+  animation: separatorGlow 2s infinite;
+}
+
+@keyframes separatorGlow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* All paragraphs progressive entrance */
+p:nth-of-type(1) {
+  animation-delay: 0.2s;
+}
+
+p:nth-of-type(2) {
+  animation-delay: 0.4s;
+}
+
+p:nth-of-type(3) {
+  animation-delay: 0.6s;
+}
+
+p:nth-of-type(4) {
+  animation-delay: 0.8s;
+}
+
+/* Enhanced hover effects */
+p:hover {
+  transform: translateX(25px) scale(1.03);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Footer gradient animation */
+footer {
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #ff6b6b);
+  background-size: 300% 300%;
+  animation: footerGradient 6s ease infinite;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@keyframes footerGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1, h2, h3, h4 {
+    font-size: 1.6em;
+  }
+  
+  p::before, p::after {
+    display: none;
+  }
+}</style>
+</body>
+</html>
